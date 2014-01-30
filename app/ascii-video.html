@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+
+<style>
+    button {
+        font: 14px sans-serif;
+        padding: 8px;
+    }
+</style>
+
+<h1 id="info">Please allow this page to access your camera.</h1>
+
+<a href="https://github.com/idevelop/ascii-camera">Original sources for this demo</a>
+
+<pre id="ascii"></pre>
+<button id="pause">pause / resume</button>
+<label><input type="checkbox" id="negative"> Negative</label>
+<label><input type="checkbox" id="neon"> Neon</label>
+<label><input type="checkbox" id="chars"> Characters</label>
+<br />
+<label><input type="range" min="-100" max="100" value="0" step="10" id="red" /> Red </label><br />
+<label><input type="range" min="-100" max="100" value="0" step="10" id="green" /> Green</label><br />
+<label><input type="range" min="-100" max="100" value="0" step="10" id="blue" /> Blue</label><br />
+
+<script src="js/ascii/camera.js"></script>
+<script src="js/ascii/ascii.js"></script>
+<script src="js/ascii/app.js"></script>
+</body>
+</html>

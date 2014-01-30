@@ -17,8 +17,8 @@ function init() {
         gradient.addColorStop(1, '#550000');
         equalizerCanvasContext.fillStyle = gradient;
 
-        window.AudioContext = window.AudioContext || window.webkitAudioContext;
-        getUserMedia({audio: true}, function (stream) {
+
+        getMediaForCallback({audio: true, video: false}, function (stream) {
             // Open and connect to audio stream
             audioContext = new AudioContext();
             analyser = (analyser || audioContext.createAnalyser());
@@ -29,8 +29,6 @@ function init() {
             microphone.connect(analyser);
 
             drawEqualizerBar();
-
-
         });
 
         function drawEqualizerBar() {
