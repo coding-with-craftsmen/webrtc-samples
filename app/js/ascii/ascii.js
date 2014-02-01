@@ -68,9 +68,10 @@ var ascii = (function () {
     }
 
     function getColorCode(colorNumber) {
-//        var contrastFactor = (259 * (128 + 255)) / (255 * (259 - 128));
-        var contrastFactor = 1;
-        colorNumber = bound(Math.floor((colorNumber - 128) * contrastFactor) + 128, [0, 255])
+	var lowbitCheckbox = document.getElementById("lowbit");
+	if (lowbitCheckbox.checked) {
+		colorNumber = bound(Math.ceil(colorNumber / 64) * 64, [0, 255]);
+	}
 
         var negativeCheckbox = document.getElementById("negative");
         if (negativeCheckbox.checked) {
