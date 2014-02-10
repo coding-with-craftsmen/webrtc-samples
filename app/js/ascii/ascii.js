@@ -68,26 +68,24 @@ var ascii = (function () {
     }
 
     function getColorCode(colorNumber) {
-	var lowbitCheckbox = document.getElementById("lowbit");
-	if (lowbitCheckbox.checked) {
-		colorNumber = bound(Math.ceil(colorNumber / 64) * 64, [0, 255]);
-	}
-
         var negativeCheckbox = document.getElementById("negative");
         if (negativeCheckbox.checked) {
             colorNumber = 255 - colorNumber;
         }
 
+        if (document.getElementById("lowbit").checked) {
+            colorNumber = Math.floor(colorNumber / 128) * 255;
+        }
+        colorNumber = bound(colorNumber, [0, 255]);
+        return hexColorNumber(colorNumber);
+    }
+
+    function hexColorNumber(colorNumber) {
         var hexColorNumber = colorNumber.toString(16);
         if (hexColorNumber.length < 2) {
             hexColorNumber = '0' + hexColorNumber;
         }
-
         return hexColorNumber;
-    }
-
-    function getNeonColorCode(colorNumber) {
-
     }
 
     function getColorAtOffset(data, offset) {
